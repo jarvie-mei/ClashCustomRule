@@ -24,7 +24,6 @@ dns:
     fallback: ['https://101.101.101.101/dns-query', 'https://208.67.220.220/dns-query', 'https://doh.mullvad.net/dns-query']
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 223.75.236.241/32, 182.43.124.6/32, 106.74.25.198/32, 183.192.65.101/32], domain: [+.google.cn, +.tagss01.pro, +.tagss02.pro, +.tagss03.pro, +.tagss04.pro, +.tagss05.pro, +.tagcdnsub.work, +.jsdelivr.net, +.proton.me] }
 script:
-  engine: expr
   shortcuts:
     quic: network == 'udp' and dst_port == 443
     quic-cn: network == 'udp' and geoip(dst_ip if dst_ip != '' else resolve_ip(host)) == 'CN'
