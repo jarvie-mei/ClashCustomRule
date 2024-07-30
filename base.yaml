@@ -26,5 +26,3 @@ dns:
 script:
   shortcuts:
     quic: network == 'udp' and dst_port == 443
-    quic-cn: network == 'udp' and geoip(dst_ip if dst_ip != '' else resolve_ip(host)) == 'CN'
-  
