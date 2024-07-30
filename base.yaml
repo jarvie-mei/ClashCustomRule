@@ -2,19 +2,14 @@ port: 7890
 socks-port: 7891
 redir-port: 7892
 mixed-port: 7893
-allow-lan: false
+allow-lan: true
 mode: Rule
 log-level: info
 external-controller: ':9990'
-clash-for-android:
-    append-system-dns: false
-hosts:
-    mtalk.google.com: 108.177.125.188
-    raw.githubusercontent.com: 151.101.76.133
 dns:
   enabled: true
   nameserver:
-    - 119.29.29.29
+    - 114.114.114.114
     - 223.5.5.5
   fallback:
     - 8.8.8.8
@@ -26,5 +21,4 @@ script:
         quic: network == 'udp' and dst_port == 443
 
 rules:
-    - DOMAIN-SUFFIX,test,DIRECT
-    - SCRIPT,quic,REJECT,no-resolve
+    - 'SCRIPT,quic,REJECT'
